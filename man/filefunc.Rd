@@ -1,13 +1,13 @@
-\name{get}
+\name{here}
 \alias{set}
-\alias{get}
+\alias{here}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Get the directory an Rscript is in. Can also set working directory to this}
 \description{
   Simple functions for getting the rscript file directory and setting the working directory to this folder. This MUST be placed in the script and ran in rstudio. CANNOT run in console.
 }
 \usage{
-get(file, sep = '/')
+here(file, sep = '/')
 set()
 }
 %- maybe also 'usage' for other objects documented here.

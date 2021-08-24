@@ -4,21 +4,25 @@
 
 # Gets file director
 #' @export
-get <- function(file = NULL, sep = '/') {
-    if (is.null(file)) return(dirname(rstudioapi::getSourceEditorContext()$path))
-    return(paste0(fdir::get(), sep, file))
+here <- function(file = NULL, sep = '/') {
+    if (is.null(file)) {
+        filename <- rstudioapi::getSourceEditorContext()$path
+        if (is.null(filename)) return(getwd())
+        else return(dirname(filename))
+    }
+    return(paste0(fdir::here(), sep, file))
 }
 
 # Sets the working directory to file directory
 #' @export
 set <- function() {
-    setwd(fdir::get())
+    setwd(fdir::here())
 }
 
 
 # Sets the working directory to file directory
 #' @export
 set <- function() {
-    setwd(fdir::get())
+    setwd(fdir::here())
 }
 
