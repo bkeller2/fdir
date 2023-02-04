@@ -5,7 +5,10 @@
 # Gets file director
 #' @export
 here <- function(file = NULL, sep = '/') {
-    file <- substitute(file)
+    file <- tryCatch(
+        eval(substitute(file)),
+        error = function(e) substitute(file)
+    )
     if (is.null(file)) {
         filename <- rstudioapi::getSourceEditorContext()$path
         if (is.null(filename)) return(getwd())
